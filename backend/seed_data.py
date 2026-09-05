@@ -63,14 +63,17 @@ def seed():
     finally:
         db.close()
 
-    print("🚀 Triggering live web crawlers for news & market data...")
-    portals = ["nepsealpha_metrics", "merolagani", "sharesansar", "nepsealpha", "bizmandu", "market_data"]
-    for portal in portals:
-        print(f"  -> Crawling {portal}...")
-        res = execute_crawl(portal, triggered_by="initial_seed_crawl")
-        print(f"  ✓ {portal} finished: status={res.get('status')}, found={res.get('items_found')}, inserted={res.get('items_inserted')}")
+    if "--crawl" in sys.argv:
+        print("🚀 Triggering live web crawlers for news & market data...")
+        portals = ["nepsealpha_metrics", "merolagani", "sharesansar", "nepsealpha", "bizmandu", "market_data"]
+        for portal in portals:
+            print(f"  -> Crawling {portal}...")
+            res = execute_crawl(portal, triggered_by="initial_seed_crawl")
+            print(f"  ✓ {portal} finished: status={res.get('status')}, found={res.get('items_found')}, inserted={res.get('items_inserted')}")
+    else:
+        print("ℹ️  Skipping crawlers (pass --crawl to run them). You can trigger crawls via POST /api/v1/crawls/trigger after the server starts.")
 
-    print("🎉 Database setup & live data ingestion completed successfully!")
+    print("🎉 Database seed completed successfully!")
 
 
 if __name__ == "__main__":
