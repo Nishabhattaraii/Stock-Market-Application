@@ -81,25 +81,25 @@ export const LoginPage: React.FC = () => {
 
         <div style={{ marginTop: '24px', paddingTop: '16px', borderTop: '1px solid #e2e8f0', textAlign: 'center' }}>
           <span style={{ fontSize: '12px', color: '#64748b', display: 'block', marginBottom: '8px' }}>Demo Quick Switch:</span>
-          <div className="flex gap-2 justify-between">
+          <div className="flex gap-2 justify-between flex-wrap">
             <button
               onClick={() => setDemoRole('admin@nepse.com', 'admin123')}
               className="btn btn-secondary"
-              style={{ flex: 1, padding: '4px 6px', fontSize: '11px' }}
+              style={{ flex: '1 1 80px', padding: '6px 4px', fontSize: '11px' }}
             >
               Admin
             </button>
             <button
               onClick={() => setDemoRole('analyst@nepse.com', 'analyst123')}
               className="btn btn-secondary"
-              style={{ flex: 1, padding: '4px 6px', fontSize: '11px' }}
+              style={{ flex: '1 1 80px', padding: '6px 4px', fontSize: '11px' }}
             >
               Analyst
             </button>
             <button
               onClick={() => setDemoRole('viewer@nepse.com', 'viewer123')}
               className="btn btn-secondary"
-              style={{ flex: 1, padding: '4px 6px', fontSize: '11px' }}
+              style={{ flex: '1 1 80px', padding: '6px 4px', fontSize: '11px' }}
             >
               Viewer
             </button>

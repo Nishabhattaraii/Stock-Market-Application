@@ -66,7 +66,7 @@ export const UsersPage: React.FC = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center" style={{ marginBottom: '24px' }}>
+      <div className="page-header-flex">
         <div>
           <h1 style={{ fontSize: '22px', fontWeight: 700, color: 'var(--text-primary)' }}>User & Role Access Management</h1>
           <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Manage system user accounts and assign RBAC roles (Admin, Analyst, Viewer)</p>
@@ -154,8 +154,8 @@ export const UsersPage: React.FC = () => {
 
       {/* Create User Modal */}
       {showModal && (
-        <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(15, 23, 42, 0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 50 }}>
-          <div className="card" style={{ width: '100%', maxWidth: '440px', margin: '20px', padding: '24px' }}>
+        <div className="modal-overlay">
+          <div className="card modal-content">
             <h3 className="card-title" style={{ marginBottom: '16px', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
               Create New System User
             </h3>

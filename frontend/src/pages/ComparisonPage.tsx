@@ -32,9 +32,11 @@ export const ComparisonPage: React.FC = () => {
 
   return (
     <div>
-      <div style={{ marginBottom: '24px' }}>
-        <h1 style={{ fontSize: '22px', fontWeight: 700, color: 'var(--text-primary)' }}>Stock Intelligence Comparison</h1>
-        <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Compare close returns, volume metrics, order flow pressure, and news frequency</p>
+      <div className="page-header-flex">
+        <div>
+          <h1 style={{ fontSize: '22px', fontWeight: 700, color: 'var(--text-primary)' }}>Stock Intelligence Comparison</h1>
+          <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Compare close returns, volume metrics, order flow pressure, and news frequency</p>
+        </div>
       </div>
 
       {/* Multi-Select Pills */}

@@ -46,7 +46,7 @@ export const DashboardPage: React.FC = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center" style={{ marginBottom: '24px' }}>
+      <div className="page-header-flex">
         <div>
           <h1 style={{ fontSize: '22px', fontWeight: 700, color: 'var(--text-primary)' }}>Market Intelligence Dashboard</h1>
           <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Nepal Stock Exchange (NEPSE) Realtime Monitor & Crawl Analytics</p>
@@ -96,8 +96,8 @@ export const DashboardPage: React.FC = () => {
 
               {/* Stock Selector Pill */}
               <select
-                className="input"
-                style={{ width: '180px', padding: '6px 10px', fontSize: '13px' }}
+                className="input responsive-select"
+                style={{ padding: '6px 10px', fontSize: '13px' }}
                 value={activeCompanyId}
                 onChange={(e) => setSelectedCompanyId(Number(e.target.value))}
               >
@@ -113,7 +113,7 @@ export const DashboardPage: React.FC = () => {
               <SkeletonLoader rows={5} />
             ) : (
               <div>
-                <div className="flex items-center gap-4" style={{ marginBottom: '16px', padding: '12px', background: 'var(--bg-secondary)', borderRadius: '6px' }}>
+                <div className="flex items-center gap-4 flex-wrap" style={{ marginBottom: '16px', padding: '12px', background: 'var(--bg-secondary)', borderRadius: '6px' }}>
                   <div>
                     <span style={{ fontSize: '12px', color: 'var(--text-muted)', display: 'block' }}>Latest Close</span>
                     <span style={{ fontSize: '18px', fontWeight: 700 }}>{formatCurrency(latestSnap?.close_price)}</span>

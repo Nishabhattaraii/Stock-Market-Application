@@ -21,13 +21,13 @@ export const CorrectionsPage: React.FC = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center" style={{ marginBottom: '24px' }}>
+      <div className="page-header-flex">
         <div>
           <h1 style={{ fontSize: '22px', fontWeight: 700, color: 'var(--text-primary)' }}>Analyst Tag Corrections & Training Audit Log</h1>
           <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Audit history of manual company tag overrides and retraining dataset export</p>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           <button onClick={() => handleExportTrainingDataset('csv')} className="btn btn-secondary" style={{ padding: '6px 12px', fontSize: '12.5px' }}>
             <Download size={14} />
             <span>Export CSV Dataset</span>

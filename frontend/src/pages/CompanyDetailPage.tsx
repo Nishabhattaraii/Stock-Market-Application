@@ -48,9 +48,9 @@ export const CompanyDetailPage: React.FC = () => {
           <span>Back to Dashboard</span>
         </Link>
 
-        <div className="flex justify-between items-center">
+        <div className="page-header-flex">
           <div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 flex-wrap">
               <h1 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--text-primary)' }}>{company.symbol}</h1>
               <span className="badge badge-blue">{company.sector}</span>
               {snap?.volume_anomaly && <span className="badge badge-red">Volume Anomaly (&ge; 2x Avg)</span>}
@@ -58,7 +58,7 @@ export const CompanyDetailPage: React.FC = () => {
             <p style={{ fontSize: '14px', color: 'var(--text-secondary)', marginTop: '2px' }}>{company.name}</p>
           </div>
 
-          <div style={{ textAlign: 'right' }}>
+          <div style={{ textAlign: 'left' }}>
             <span style={{ fontSize: '12px', color: 'var(--text-muted)', display: 'block' }}>Latest Market Price</span>
             <span style={{ fontSize: '24px', fontWeight: 700, color: 'var(--text-primary)' }}>
               {formatCurrency(snap?.close_price)}

@@ -60,7 +60,7 @@ export const NewsPage: React.FC = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center" style={{ marginBottom: '24px' }}>
+      <div className="page-header-flex">
         <div>
           <h1 style={{ fontSize: '22px', fontWeight: 700, color: 'var(--text-primary)' }}>Market News & Intelligence Feed</h1>
           <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Crawled news articles categorized across NEPSE listed companies</p>
@@ -69,15 +69,15 @@ export const NewsPage: React.FC = () => {
 
       {/* Filter Toolbar */}
       <div className="card" style={{ padding: '16px 20px', marginBottom: '20px' }}>
-        <div className="flex items-center gap-4 flex-wrap">
+        <div className="filter-toolbar">
           <div className="flex items-center gap-2" style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-secondary)' }}>
             <Filter size={16} />
             <span>Filter News:</span>
           </div>
 
           <select
-            className="input"
-            style={{ width: '180px', padding: '6px 10px', fontSize: '13px' }}
+            className="input responsive-select"
+            style={{ padding: '6px 10px', fontSize: '13px' }}
             value={selectedSource}
             onChange={(e) => setSelectedSource(e.target.value)}
           >
@@ -89,8 +89,8 @@ export const NewsPage: React.FC = () => {
           </select>
 
           <select
-            className="input"
-            style={{ width: '220px', padding: '6px 10px', fontSize: '13px' }}
+            className="input responsive-select"
+            style={{ padding: '6px 10px', fontSize: '13px' }}
             value={selectedCompanyId || ''}
             onChange={(e) => setSelectedCompanyId(e.target.value ? Number(e.target.value) : undefined)}
           >
@@ -122,8 +122,8 @@ export const NewsPage: React.FC = () => {
 
       {/* Recategorization Modal */}
       {editingArticle && (
-        <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(15, 23, 42, 0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 50 }}>
-          <div className="card" style={{ width: '100%', maxWidth: '480px', margin: '20px', padding: '24px' }}>
+        <div className="modal-overlay">
+          <div className="card modal-content">
             <div className="flex justify-between items-center" style={{ marginBottom: '16px', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
               <div className="flex items-center gap-2">
                 <Edit3 size={18} />

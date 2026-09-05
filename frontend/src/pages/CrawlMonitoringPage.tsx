@@ -35,7 +35,7 @@ export const CrawlMonitoringPage: React.FC = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center" style={{ marginBottom: '24px' }}>
+      <div className="page-header-flex">
         <div>
           <h1 style={{ fontSize: '22px', fontWeight: 700, color: 'var(--text-primary)' }}>Crawler Monitoring & System Health</h1>
           <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Live background crawler tasks, rate limits, and crawl error logs</p>
@@ -57,12 +57,12 @@ export const CrawlMonitoringPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-4 flex-wrap">
-            <div className="flex items-center gap-2">
+          <div className="filter-toolbar">
+            <div className="flex items-center gap-2 flex-wrap">
               <span style={{ fontSize: '13px', fontWeight: 500, color: 'var(--text-secondary)' }}>Select Target Portal:</span>
               <select
-                className="input"
-                style={{ width: '200px', padding: '6px 10px', fontSize: '13px' }}
+                className="input responsive-select"
+                style={{ padding: '6px 10px', fontSize: '13px' }}
                 value={selectedPortal}
                 onChange={(e) => setSelectedPortal(e.target.value)}
               >
