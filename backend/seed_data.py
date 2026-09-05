@@ -5,10 +5,14 @@ from app.core.security import get_password_hash
 from app.models import User, Company
 from app.tasks.crawl_tasks import execute_crawl
 
+import sys
+
 def seed():
-    print("Deleting all existing data & dropping database tables...")
-    Base.metadata.drop_all(bind=engine)
-    print("Re-creating database tables & executing live crawlers...")
+    if "--reset" in sys.argv:
+        print("⚠️ Reset flag detected: Deleting all existing data & dropping database tables...")
+        Base.metadata.drop_all(bind=engine)
+    
+    print("Ensuring database tables exist...")
     Base.metadata.create_all(bind=engine)
     db: Session = SessionLocal()
 

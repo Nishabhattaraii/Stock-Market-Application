@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     API_V1_STR: str = "/api/v1"
     
     # Security
-    SECRET_KEY: str = "SUPER_SECRET_KEY_FOR_NEPAL_STOCK_MARKET_INTELLIGENCE_APP_2026"
+    SECRET_KEY: str = os.getenv("SECRET_KEY", "SUPER_SECRET_KEY_FOR_NEPAL_STOCK_MARKET_INTELLIGENCE_APP_2026")
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 # 24 hours
     
@@ -19,6 +19,21 @@ class Settings(BaseSettings):
     
     # CORS
     BACKEND_CORS_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:5173", "http://localhost:8080", "*"]
+    
+    @field_validator("DATABASE_URL", mode="before")
+    def assemble_db_connection(cls, v: str) -> str:
+        if isinstance(v, str) and v.startswith("postgres://"):
+            return v.replace("postgres://", "postgresql://", 1)
+        return v
+
+    @field_validator("BACKEND_CORS_ORIGINS", mode="before")
+    def assemble_cors_origins(cls, v: Union[str, List[str]]) -> List[str]:
+        if isinstance(v, str):
+            if v.startswith("["):
+                import json
+                return json.loads(v)
+            return [i.strip() for i in v.split(",") if i.strip()]
+        return v
     
     # Crawler Settings
     CRAWLER_DELAY_SECONDS: float = 1.0
