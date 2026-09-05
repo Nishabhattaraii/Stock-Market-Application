@@ -3,7 +3,8 @@ import {
   CrawlRun, CompanyAnalysisDetail, ComparisonOut
 } from '../types';
 
-const API_BASE = '/api/v1';
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://stock-market-application-production.up.railway.app';
+const API_BASE = `${BASE_URL.replace(/\/$/, '')}/api/v1`;
 
 export function getAuthToken(): string | null {
   return localStorage.getItem('token');
